@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  justify-content: center;
+  height: 75px;
+  width: 35em;
+  background: lightgray;
+  border: solid 1px;
+  border-color: grey;
+  border-radius: .2em;
+  margin: 25px;
+  padding: 0.5em;
+}
+
+.search-input {
+  width: 20em;
+  border: solid 1px;
+  border-color: grey;
+  border-radius: .2em;
+  padding: 10px;
+  margin: 1em;
+}
+
+.search-btn {
+  background: darkgray;
+  font-weight: bold;
+}
