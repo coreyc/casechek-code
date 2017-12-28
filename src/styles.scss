@@ -4,8 +4,9 @@ body {
 
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  height: 75px;
+  height: 100%;
   width: 35em;
   background: lightgray;
   border: solid 1px;

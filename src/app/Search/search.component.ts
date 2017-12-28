@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { RestaurantService } from '../shared/restaurant.service';
 
@@ -14,10 +14,8 @@ export class SearchComponent {
     private router: Router
   ) { }
 
-  fetchData() {
+  fetchData(initialSearch?: string) {
     const rs = this.restaurantService;
-    const list = rs.setRestaurants().then(() => rs.getRestaurants())
-    console.log('list', list);
-    this.router.navigate(['filter']);
+    rs.fetchRestaurants(initialSearch.toUpperCase()).then(() => { this.router.navigate(['filter']); });
   }
 }
