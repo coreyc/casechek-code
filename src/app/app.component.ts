@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RestaurantService } from './shared/restaurant.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Chicago Restaurant Viewer';
+  
+  constructor(private restaurantService: RestaurantService) { }
 }
