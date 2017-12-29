@@ -15,7 +15,11 @@ export class FilterPipe implements PipeTransform {
       //     return value.toUpperCase().includes(search);
       //   }
       // });
-      return item.name.includes(search);
+      if (item.name && item.results && item.violations) {
+        return (item.name.toUpperCase().includes(search)
+          || item.results.toUpperCase().includes(search)
+          || item.violations.toUpperCase().includes(search));
+      }
     });
    }
 }

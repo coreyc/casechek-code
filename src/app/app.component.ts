@@ -7,7 +7,7 @@ import { RestaurantService } from './shared/restaurant.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Chicago Restaurant Viewer';
+  title = 'Chicago Restaurant Inspections';
   
   constructor(private restaurantService: RestaurantService) { }
 }

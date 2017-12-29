@@ -15,9 +15,9 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
-  it(`should have as title 'Chicago Restaurant Viewer'`, async(() => {
+  it(`should have as title 'Chicago Restaurant Inspections'`, async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('Chicago Restaurant Viewer');
+    expect(app.title).toEqual('Chicago Restaurant Inspections');
   }));
 });

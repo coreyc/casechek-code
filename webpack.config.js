@@ -388,7 +388,6 @@ module.exports = {
         "context": "src",
         "to": "",
         "from": {
-          "glob": "favicon.ico",
           "dot": true
         }
       }
@@ -414,7 +413,6 @@ module.exports = {
       "hash": false,
       "inject": true,
       "compile": true,
-      "favicon": false,
       "minify": false,
       "cache": true,
       "showErrors": true,

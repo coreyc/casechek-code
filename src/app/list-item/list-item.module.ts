@@ -1,16 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { ListComponent } from './list.component';
+import { ListItemComponent } from './list-item.component';
 
 @NgModule({
   declarations: [
-    ListComponent
+    ListItemComponent
   ],
   imports: [
     BrowserModule
   ],
   providers: [],
-  bootstrap: [ListComponent]
+  bootstrap: [ListItemComponent]
 })
-export class ListModule { }
+export class ListItemModule { }

@@ -7,15 +7,17 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { FilterComponent } from './filter/filter.component';
+import { ListItemComponent } from './list-item/list-item.component';
 
 import { RestaurantService } from './shared/restaurant.service';
 import { PageService } from './shared/page.service';
+import { RouteGuard } from './shared/routeGuard.service';
 import { FilterPipe} from './shared/filter.pipe';
 
 const routes: Routes = [
   { path: '', redirectTo: '/search', pathMatch: 'full' },
   { path: 'search', component: SearchComponent },
-  { path: 'filter', component: FilterComponent }
+  { path: 'filter', component: FilterComponent, canActivate: [RouteGuard] }
 ];
 
 @NgModule({
@@ -32,7 +34,7 @@ const routes: Routes = [
     HttpModule,
     FormsModule
   ],
-  providers: [RestaurantService, PageService],
+  providers: [RestaurantService, PageService, RouteGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

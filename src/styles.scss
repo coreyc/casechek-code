@@ -15,3 +15,8 @@ body {
   margin: 25px;
   padding: 0.5em;
 }
+
+.ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

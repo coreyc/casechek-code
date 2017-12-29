@@ -10,8 +10,28 @@
 
 .card {
   height: 5em;
-  width: 15em;
   background: white;
   margin: 1em;
   padding: .5em;
+}
+
+.card-img {
+  background: rgb(189, 189, 189);
+  border-color: rgb(92, 85, 85);
+  border-radius: .2em;
+  height: 75px;
+  width: 75px;
+  margin: .2em;
+  float: left;
+}
+
+h3 {
+  font-family: Calibri, 'Trebuchet MS', sans-serif;
+  margin: .2em;
+}
+
+.card-body {
+  height: 3.5em;
+  font-size: .8em;
+  font-family: Calibri, 'Trebuchet MS', sans-serif;
 }

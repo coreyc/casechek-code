@@ -37,4 +37,12 @@ export class FilterComponent {
     this.pagedItems = this.pageService.setPageCount('next');
     this.setOffset();
   }
+
+  cannotGoNext() {
+    return this.pagedItems.length < 5;
+  }
+
+  cannotGoPrevious() {
+    return this.pageService.getPageCount() === 5;
+  }
 }
