@@ -7,11 +7,12 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class RestaurantService {
-  restaurants: Array<Object>;
+  restaurants;
 
   constructor(private http: Http) { }
 
   fetchRestaurants(initialSearch?: string): Promise<Array<Object>> {
+    const undefChecker = prop => prop ? prop : '';
     return this.http
       .get('https://data.cityofchicago.org/resource/cwig-ma7x.json')
       .toPromise()
@@ -19,21 +20,21 @@ export class RestaurantService {
         const restaurantList = res.json()
           .map(restaurant => {
             return {
-              address: restaurant.address,
-              name: restaurant.aka_name,
-              city: restaurant.city,
-              type: restaurant.facility_type,
-              inspection_date: restaurant.inspection_date,
-              inspection_id: restaurant.inspection_id,
-              license: restaurant.license,
-              results: restaurant.results,
-              risk: restaurant.risk,
-              state: restaurant.state,
-              violations: restaurant.violations,
-              zip: restaurant.zip
+              address: undefChecker(restaurant.address),
+              name: undefChecker(restaurant.aka_name),
+              city: undefChecker(restaurant.city),
+              type: undefChecker(restaurant.facility_type),
+              inspection_date: undefChecker(restaurant.inspection_date),
+              inspection_id: undefChecker(restaurant.inspection_id),
+              license: undefChecker(restaurant.license),
+              results: undefChecker(restaurant.results),
+              risk: undefChecker(restaurant.risk),
+              state: undefChecker(restaurant.state),
+              violations: undefChecker(restaurant.violations),
+              zip: undefChecker(restaurant.zip)
             }
           })
-          .filter(restaurant => { if (restaurant.name) return restaurant.name.toUpperCase().includes(initialSearch) })
+          .filter(restaurant => { if (restaurant.name) return restaurant.name.toUpperCase().includes(initialSearch) });
         this.restaurants = restaurantList;
         return restaurantList;
       })
@@ -43,6 +44,10 @@ export class RestaurantService {
   getRestaurants() {
     console.log('getRestaurants', this.restaurants);
     return this.restaurants;
+  }
+
+  getByLicense(license) {
+    return this.restaurants.filter(restaurant => restaurant.license === license);
   }
 
   private handleError(error: Response) {

@@ -1,13 +1,14 @@
 .search-input {
-  width: 20em;
+  width: 30em;
   border: solid 1px;
   border-color: grey;
   border-radius: .2em;
-  padding: 10px;
+  padding: 1em;
   margin: 1em;
 }
 
-.search-btn {
-  background: darkgray;
-  font-weight: bold;
+.search-group {
+  flex-direction: row;
+  justify-content: center;
+  display: flex;
 }

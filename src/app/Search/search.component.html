@@ -1,4 +1,6 @@
 <div class="container">
-  <input type="text" name="search" #searchInput class="search-input" placeholder="Search" aria-label="Search Input">
-  <button type="submit" class="search-btn" aria-label="Search Button" (click)="fetchData(searchInput.value)">Search</button>
+  <div class="search-group">
+    <input type="text" name="search" #searchInput class="search-input" placeholder="Search" aria-label="Search Input">
+    <button type="submit" class="app-btn" aria-label="Search Button" (click)="fetchData(searchInput.value)">Search</button>
+  </div>
 </div>

@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { FilterComponent } from './filter/filter.component';
 import { ListItemComponent } from './list-item/list-item.component';
+import { DetailItemComponent } from './detail-item/detail-item.component';
 
 import { RestaurantService } from './shared/restaurant.service';
 import { PageService } from './shared/page.service';
@@ -17,7 +18,8 @@ import { FilterPipe} from './shared/filter.pipe';
 const routes: Routes = [
   { path: '', redirectTo: '/search', pathMatch: 'full' },
   { path: 'search', component: SearchComponent },
-  { path: 'filter', component: FilterComponent, canActivate: [RouteGuard] }
+  { path: 'filter', component: FilterComponent, canActivate: [RouteGuard] },
+  { path: 'detail/:id', component: DetailItemComponent, outlet: 'id-outlet', canActivate: [RouteGuard] }
 ];
 
 @NgModule({
@@ -25,6 +27,8 @@ const routes: Routes = [
     AppComponent,
     SearchComponent,
     FilterComponent,
+    ListItemComponent,
+    DetailItemComponent,
     FilterPipe
   ],
   imports: [

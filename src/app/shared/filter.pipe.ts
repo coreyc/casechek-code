@@ -10,16 +10,9 @@ export class FilterPipe implements PipeTransform {
     
     search = search.toUpperCase();
     return items.filter(item => {
-      // return Object.values(item).map(value => {
-      //   if (value) {
-      //     return value.toUpperCase().includes(search);
-      //   }
-      // });
-      if (item.name && item.results && item.violations) {
-        return (item.name.toUpperCase().includes(search)
+      return (item.name.toUpperCase().includes(search)
           || item.results.toUpperCase().includes(search)
           || item.violations.toUpperCase().includes(search));
-      }
     });
    }
 }

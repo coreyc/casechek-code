@@ -1,10 +1,9 @@
 .filter-input {
-  width: 20em;
   height: 100%;
   border: solid 1px;
   border-color: grey;
   border-radius: .2em;
-  padding: 10px;
+  padding: 1em;
   margin: 1em;
 }
 
@@ -28,6 +27,10 @@
 h3 {
   font-family: Calibri, 'Trebuchet MS', sans-serif;
   margin: .2em;
+}
+
+h5 {
+  color: rgb(184, 182, 182);
 }
 
 .heading-inline {

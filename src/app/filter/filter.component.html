@@ -7,6 +7,8 @@
       <div class="ellipsis card-body">Violations: {{ item.violations }}</div>
     </div>
   </div>
-  <button type="button" name="next" aria-label="Next" [disabled]="cannotGoNext()" (click)="next()">Next</button>
-  <button type="button" name="previous" aria-label="Previous" [disabled]="cannotGoPrevious()" (click)="previous()">Previous</button>
+  <div class="btn-group">
+    <button type="button" name="previous" class="app-btn" aria-label="Previous" [disabled]="cannotGoPrevious()" (click)="previous()">&#60; Previous</button>
+    <button type="button" name="next" class="app-btn" aria-label="Next" [disabled]="cannotGoNext()" (click)="next()">Next &#62;</button>
+  </div>
 </div>
