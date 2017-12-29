@@ -3,10 +3,10 @@
   <div *ngFor="let item of pagedItems | filter: filterInput ">
     <div class="card">
       <div class="card-img"></div>
-      <h3>{{ item.name }}<span>Results: {{ item.results }}</span></h3>
+      <h3 class="heading-inline">{{ item.name }}<h5 class="heading-inline"> Results: {{ item.results }}</h5></h3>
       <div class="ellipsis card-body">Violations: {{ item.violations }}</div>
     </div>
   </div>
-  <button type="button" name="next" [disabled]="cannotGoNext()" (click)="next()">Next</button>
-  <button type="button" name="previous" [disabled]="cannotGoPrevious()" (click)="previous()">Previous</button>
+  <button type="button" name="next" aria-label="Next" [disabled]="cannotGoNext()" (click)="next()">Next</button>
+  <button type="button" name="previous" aria-label="Previous" [disabled]="cannotGoPrevious()" (click)="previous()">Previous</button>
 </div>
