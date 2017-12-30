@@ -46,8 +46,10 @@ export class RestaurantService {
     return this.restaurants;
   }
 
-  getByLicense(license) {
-    return this.restaurants.filter(restaurant => restaurant.license === license);
+  getById(id) {
+    return this.restaurants.filter(restaurant => {
+      return restaurant.inspection_id === id;
+    }).pop();
   }
 
   private handleError(error: Response) {

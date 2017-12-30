@@ -1,8 +1,10 @@
+@import "../../variables.scss";
+
 .filter-input {
   height: 100%;
   border: solid 1px;
-  border-color: grey;
-  border-radius: .2em;
+  border-color: $darkestgrey;
+  border-radius: $radius;
   padding: 1em;
   margin: 1em;
 }
@@ -15,9 +17,9 @@
 }
 
 .card-img {
-  background: rgb(189, 189, 189);
-  border-color: rgb(92, 85, 85);
-  border-radius: .2em;
+  background: $darkgrey;
+  border-color: $darkestgrey;
+  border-radius: $radius;
   height: 75px;
   width: 75px;
   margin: .2em;
@@ -25,20 +27,16 @@
 }
 
 h3 {
-  font-family: Calibri, 'Trebuchet MS', sans-serif;
+  font-family: $info-font;
   margin: .2em;
 }
 
 h5 {
-  color: rgb(184, 182, 182);
-}
-
-.heading-inline {
-  display: inline;
+  color: $darkgrey;
 }
 
 .card-body {
   height: 3.5em;
   font-size: .8em;
-  font-family: Calibri, 'Trebuchet MS', sans-serif;
+  font-family: $info-font;
 }

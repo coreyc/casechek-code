@@ -1,3 +1,5 @@
+@import "variables";
+
 body {
   margin: 0;
 }
@@ -7,9 +9,9 @@ body {
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  background: rgb(237, 237, 237);
+  background:$lightgrey;
   border: solid 1px;
-  border-color: rgb(189, 189, 189);
+  border-color: $darkgrey;
   border-radius: .2em;
   margin: 25px;
   padding: 0.5em;
@@ -24,10 +26,14 @@ body {
   overflow: hidden;
 }
 
+.heading-inline {
+  display: inline;
+}
+
 .app-btn {
-  background: linear-gradient(lightgray, darkgray);
+  background: linear-gradient($lightgrey,$darkgrey);
   border-radius: .2em;
-  border-color: rgb(97, 97, 97);
+  border-color: $darkestgrey;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   padding: 1em;

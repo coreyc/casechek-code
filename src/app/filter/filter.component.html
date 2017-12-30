@@ -1,7 +1,7 @@
 <div class="container">
   <input type="text" name="filter" [(ngModel)]="filterInput" class="filter-input" placeholder="Search Term" aria-label="Filter Input">
   <div *ngFor="let item of pagedItems | filter: filterInput ">
-    <div class="card">
+    <div class="card" aria-label="Click for detail view" (click)="goToDetail(item.inspection_id)">
       <div class="card-img"></div>
       <h3 class="heading-inline">{{ item.name }}<h5 class="heading-inline"> Results: {{ item.results }}</h5></h3>
       <div class="ellipsis card-body">Violations: {{ item.violations }}</div>

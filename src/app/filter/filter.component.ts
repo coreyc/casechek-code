@@ -46,7 +46,10 @@ export class FilterComponent {
     return this.pageService.getPageCount() === 5;
   }
 
-  clickDetail(id) {
-    this.router.navigate(['./', { outlets: { 'id-outlet': ['detail', id]} }]);
+  goToDetail(id) {
+    console.log(id);
+    const link = ['/detail', id];
+    this.router.navigate(link);
   }
+
 }

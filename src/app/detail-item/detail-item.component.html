@@ -1,3 +1,18 @@
 <div class="detail-card">
-  
+  <div class="card-img"></div>
+  <h3 class="heading-inline">{{ detailInfo.name }}<h5 class="heading-inline"> Results: {{ detailInfo.results }}</h5></h3>
+  <section>
+    <div class="detail-section">
+      <h3>Violations:</h3> {{ detailInfo.violations }}
+      <h3>Risk:</h3> {{ detailInfo.risk }}
+      <h3>License:</h3> {{ detailInfo.license }}
+      <h3>Inspection ID:</h3> {{ detailInfo.inspection_id }}
+    </div>
+  </section>
+  <section>
+    <div class="detail-section">
+      <h3>Address:</h3> {{ detailInfo.address }}<br>
+      {{ detailInfo.city }}, {{ detailInfo.state }} {{ detailInfo.zip }}
+    </div>
+  </section>
 </div>

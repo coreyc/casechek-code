@@ -1,6 +1,26 @@
+@import "../../variables.scss";
+
 .detail-card {
   height: 100%;
-  background: white;
+  border: solid 1px;
+  border-radius: $radius;
   margin: 1em;
+  padding: .5em;
+}
+
+h3 {
+  font-family: $info-font;
+  margin: .2em;
+}
+
+h5 {
+  color: $darkgrey;
+}
+
+.detail-section {
+  margin: 2em;
+  background: $lightgrey;
+  border-radius: $radius;
+  font-family: $info-font;
   padding: .5em;
 }

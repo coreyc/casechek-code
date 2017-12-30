@@ -14,8 +14,8 @@ export class SearchComponent {
     private router: Router
   ) { }
 
-  fetchData(initialSearch?: string) {
-    const rs = this.restaurantService;
-    rs.fetchRestaurants(initialSearch.toUpperCase()).then(() => { this.router.navigate(['filter']); });
+  fetchData(initialSearch: string) {
+    this.restaurantService
+      .fetchRestaurants(initialSearch.toUpperCase()).then(() => { this.router.navigate(['filter']); });
   }
 }

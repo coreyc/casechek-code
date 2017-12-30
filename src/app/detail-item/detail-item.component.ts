@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { RestaurantService } from '../shared/restaurant.service';
 import { Subscription } from 'rxjs/Subscription';
+import { debug } from 'util';
 
 @Component({
   selector: 'detail-item',
@@ -9,24 +10,16 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./detail-item.component.scss']
 })
 export class DetailItemComponent {
-  private param: string;
-  private subcription: Subscription;
+  detailInfo: Object;
   
   constructor(
     private restaurantService: RestaurantService,
-    private route: ActivatedRoute,
-    private router: Router
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.subcription = this.route.queryParams.subscribe((params: Params) => {
-      this.param = params['param'];
-      this.restaurantService.getByLicense(this.param);
-      console.log(this.param);
+    this.route.params.forEach(param => {
+      this.detailInfo = this.restaurantService.getById(param.id);
     });
-  }
-
-  ngOnDestroy() {
-    this.subcription.unsubscribe();
   }
 }
