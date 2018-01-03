@@ -1,0 +1,14 @@
+.search-input {
+  width: 30em;
+  border: solid 1px;
+  border-color: grey;
+  border-radius: .2em;
+  padding: 1em;
+  margin: 1em;
+}
+
+.search-group {
+  flex-direction: row;
+  justify-content: center;
+  display: -webkit-box;
+}
