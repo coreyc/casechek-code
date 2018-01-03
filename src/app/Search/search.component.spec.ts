@@ -1,12 +1,16 @@
-import { TestBed, ComponentFixture, inject, async } from '@angular/core/testing';
-import { Component, DebugElement } from "@angular/core";
-import { Router } from "@angular/router";
-import { HttpModule } from '@angular/http';
+import { TestBed, ComponentFixture, inject, fakeAsync, flush } from '@angular/core/testing';
+import { Component, DebugElement } from '@angular/core';
+import { Router } from '@angular/router';
+import { HttpModule, Http, BaseRequestOptions } from '@angular/http';
 import { RouterTestingModule } from '@angular/router/testing';
-import { By } from "@angular/platform-browser";
+import { By } from '@angular/platform-browser';
+import { MockBackend } from '@angular/http/testing';
 
 import { SearchComponent } from './search.component';
 import { RestaurantService } from '../shared/restaurant.service';
+
+import { restaurantServiceMock } from '../shared/mocks';
+import { setTimeout } from 'timers';
 
 describe('SearchComponent', () => {
 
@@ -14,45 +18,39 @@ describe('SearchComponent', () => {
   let fixture: ComponentFixture<SearchComponent>;
   let inputEl: DebugElement;
   let buttonEl: DebugElement;
-
-  const restaurantListMock = {
-    fetchRestaurants: jasmine.createSpy('fetchRestaurants')
-  };
-
-  const router = {
-    navigate: jasmine.createSpy('navigate')
-  };
+  let router: Router;
 
   beforeEach(() => {
-
-    // refine the test module by declaring the test component
     TestBed.configureTestingModule({
-      imports: [
-        HttpModule,
-        RouterTestingModule.withRoutes([
-          { path: 'search', component: SearchComponent }
-        ])
-      ],
+      imports: [RouterTestingModule.withRoutes([])],
       declarations: [SearchComponent],
       providers: [
-        { provide: RestaurantService, useValue: restaurantListMock},
-        { provide: Router, useValue: router }
+        { provide: RestaurantService, useValue: restaurantServiceMock },
+        MockBackend,
+        BaseRequestOptions,
+        {
+          provide: Http,
+          useFactory: (backend, options) => new Http(backend, options),
+          deps: [MockBackend, BaseRequestOptions]
+        }
       ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(SearchComponent);
-    component = fixture.debugElement.componentInstance;
+    component = fixture.componentInstance;
 
+    router = TestBed.get(Router);
     inputEl = fixture.debugElement.query(By.css('input'));
     buttonEl = fixture.debugElement.query(By.css('button'));
   });
 
   describe('fetchData()', () => {
-    xit('should get data from restaurant service from search query', () => {
+    it('should go to next page upon fetching restaurant data', fakeAsync(() => {
+      const navSpy = spyOn(router, 'navigate')
       component.fetchData('pizza');
-      fixture.detectChanges();
-      expect(router.navigate).toHaveBeenCalled();
-    });
+      flush();
+      expect(navSpy).toHaveBeenCalledWith(['filter']);
+    }));
   });
 });
-;
+

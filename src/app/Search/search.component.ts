@@ -16,6 +16,6 @@ export class SearchComponent {
 
   fetchData(initialSearch: string) {
     this.restaurantService
-      .fetchRestaurants(initialSearch.toUpperCase()).then(() => { this.router.navigate(['filter']); });
+      .fetchRestaurants(initialSearch).then(() => { this.router.navigate(['filter']); });
   }
 }

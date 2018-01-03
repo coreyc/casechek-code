@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class PageService {
-  currentPage: number = 1;
+  currentPage = 1;
 
   setPageCount(direction: string) {
     if (direction === 'next') this.currentPage++;

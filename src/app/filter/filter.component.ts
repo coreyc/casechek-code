@@ -10,8 +10,9 @@ import { PageService } from '../shared/page.service';
 })
 export class FilterComponent {
   restaurants: Array<Object>;
-  pagedItems: any;
-  
+  pagedItems;
+  filterInput;
+
   constructor(
     private router: Router,
     private restaurantService: RestaurantService,
@@ -47,7 +48,6 @@ export class FilterComponent {
   }
 
   goToDetail(id) {
-    console.log(id);
     const link = ['/detail', id];
     this.router.navigate(link);
   }

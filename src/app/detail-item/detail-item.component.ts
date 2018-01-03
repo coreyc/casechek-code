@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { RestaurantService } from '../shared/restaurant.service';
 import { Subscription } from 'rxjs/Subscription';
-import { debug } from 'util';
 
 @Component({
   selector: 'detail-item',
@@ -10,8 +9,8 @@ import { debug } from 'util';
   styleUrls: ['./detail-item.component.scss']
 })
 export class DetailItemComponent {
-  detailInfo: Object;
-  
+  detailInfo;
+
   constructor(
     private restaurantService: RestaurantService,
     private route: ActivatedRoute

@@ -7,18 +7,18 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class RestaurantService {
-  restaurants;
+  restaurants: Array<Object>;
 
   constructor(private http: Http) { }
 
   fetchRestaurants(initialSearch?: string): Promise<Array<Object>> {
-    const undefChecker = prop => prop ? prop : '';
+    const undefChecker = (prop: string) => prop ? prop : '';
     return this.http
       .get('https://data.cityofchicago.org/resource/cwig-ma7x.json')
       .toPromise()
       .then((res: Response) => {
         const restaurantList = res.json()
-          .map(restaurant => {
+          .map((restaurant: any) => {
             return {
               address: undefChecker(restaurant.address),
               name: undefChecker(restaurant.aka_name),
@@ -32,9 +32,13 @@ export class RestaurantService {
               state: undefChecker(restaurant.state),
               violations: undefChecker(restaurant.violations),
               zip: undefChecker(restaurant.zip)
-            }
+            };
           })
-          .filter(restaurant => { if (restaurant.name) return restaurant.name.toUpperCase().includes(initialSearch) });
+          .filter((restaurant: any) => {
+            if (restaurant.name) {
+              return restaurant.name.toUpperCase().includes(initialSearch.toUpperCase());
+            }
+          });
         this.restaurants = restaurantList;
         return restaurantList;
       })
@@ -42,12 +46,11 @@ export class RestaurantService {
   }
 
   getRestaurants() {
-    console.log('getRestaurants', this.restaurants);
     return this.restaurants;
   }
 
-  getById(id) {
-    return this.restaurants.filter(restaurant => {
+  getById(id: string) {
+    return this.restaurants.filter((restaurant: any) => {
       return restaurant.inspection_id === id;
     }).pop();
   }

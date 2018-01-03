@@ -10,7 +10,7 @@ describe('AppComponent', () => {
         SearchComponent
       ],
       providers: [
-        { provide: RouterTestingModule, useClass: class { navigate = jasmine.createSpy("navigate"); } }
+        { provide: RouterTestingModule, useClass: class { navigate = jasmine.createSpy('navigate'); } }
       ],
       imports: [RouterTestingModule]
     }).compileComponents();
